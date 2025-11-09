@@ -1,0 +1,7 @@
+services:
+  basic_authentication1:
+    image: basic_authentication1:latest
+    build: .
+    restart: "no"
+    ports:
+      - "8080:8080"

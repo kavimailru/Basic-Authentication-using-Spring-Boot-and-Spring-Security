@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>23</java.version>
+		<start-class>com.Basic_Authentication.Basic_Authentication1.BasicAuthentication1Application</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,6 +61,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.Basic_Authentication.Basic_Authentication1.BasicAuthentication1Application</mainClass>
+					<layout>JAR</layout>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
