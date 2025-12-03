@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,6 +15,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity(debug = true)
 public class SpringSecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -32,7 +35,7 @@ public class SpringSecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
-        http.csrf().disable()
+        http.csrf(CsrfConfigurer::disable)
                 .authorizeHttpRequests((authorize)->{
                     authorize.anyRequest().authenticated();
                 }).httpBasic(Customizer.withDefaults());
@@ -45,7 +48,7 @@ public class SpringSecurityConfig {
 
         UserDetails user1= User.builder()
                 .username("user1")
-                .password(passwordEncoder().encode("user123pwd"))
+                .password(passwordEncoder().encode("user123"))
                 .roles("USER")
                 .build();
 
