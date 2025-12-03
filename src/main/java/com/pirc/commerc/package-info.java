@@ -5,5 +5,5 @@
 // Generated on: 2025.12.03 at 07:22:14 PM MSK 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "urn:1C.ru:commerceml_2", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "urn:1C.ru:commerceml_2", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.pirc.commerc;
